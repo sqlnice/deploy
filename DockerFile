@@ -1,0 +1,17 @@
+# 选择一个体积小的镜像
+FROM node:14-alpine
+
+# 设置工作目录 下面RUN/CMD等命令都是在这里执行
+WORKDIR /app
+
+# 把代码置于镜像 前面.指当前文件夹路径下所有， /app 指容器下的路径
+ADD . /app
+
+# 装包
+RUN npm
+
+# 暴露端口
+EXPOSE 3000
+
+# 启动 Node Server
+CMD npm node-server
